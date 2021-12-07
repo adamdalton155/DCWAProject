@@ -27,7 +27,13 @@ MongoClient.connect('mongodb://localhost:27017')
 
     function addLecturer(){
         return new Promise((resolve, reject)=>{
-            
+            coll.insertOne(newLecturer)
+            .then((data)=>{
+                resolve(data)
+            })
+            .catch((error)=>{
+                reject(error)
+            })
         })
     }
 

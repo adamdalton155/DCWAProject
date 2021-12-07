@@ -83,6 +83,7 @@ app.post('/addStudent',(req,res)=>{
      })
     })
 
+//Gets a list of lecturers
 app.get('/listLecturers', (req, res)=>{
   mongoDB.getLecturers()
   .then((data)=>{
@@ -93,8 +94,20 @@ app.get('/listLecturers', (req, res)=>{
   })
 })
 
+//Function to add a lecturer to the lectuers list
 app.get('/addLecturer', (req, res)=>{
-  
+  mongoDB.addLecturer(req.body)
+  .then((data)=>{
+      res.redirect('/listLecturers')
+  })
+  .catch((error)=>{
+      if(error.code == 11000){
+         res.send("ERROR: Employee " + req.body._id + " ALREADY EXISTS!!!") 
+      }else{
+          res.send(error)
+      }
+      
+  })
 })
 
 app.listen(port, () => {
