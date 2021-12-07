@@ -1,0 +1,19 @@
+<table>
+    <h1>Lecturers</h1>
+    <th>Lecturer ID</th>
+    <th>Name</th>
+    <th>Dept
+    </th>
+    <a href="listLecturers"><button type="submit" value="Add Lecturer">Add Lecturer</button></a>
+    </tr>
+    <% lecturerstList.forEach((lecturerstList) =>
+    { %>
+    <tr>
+    <td><%= lecturerstList._id %></td>
+    <td><%= lecturerstList.name %></td>
+    <td><%= lecturerstList.dept %></td>
+    </tr>
+    <% }) %>
+</table>
+
+<a href="http://localhost:3000/">Home</a>
