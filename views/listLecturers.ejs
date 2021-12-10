@@ -1,0 +1,38 @@
+<!--CSS to adding padding to the table-->
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
+
+<table>
+    <h1>Lecturers</h1>
+    <th>Lecturer ID</th>
+    <th>Name</th>
+    <th>Dept
+    </th>
+    <!--Button to bring user to addLecturer page to add a lecturer to lecturer list-->
+    <a href="http://localhost:3000/addLecturer"><button type="submit" value="Add Lecturer">Add Lecturer</button></a>
+    </tr>
+    <!--Lists the lecturers information from MongoDB database in a table format-->
+    <% lecturerstList.forEach((lecturerstList)=>
+        { %>
+        <tr>
+            <td>
+                <%= lecturerstList._id %>
+            </td>
+            <td>
+                <%= lecturerstList.name %>
+            </td>
+            <td>
+                <%= lecturerstList.dept %>
+            </td>
+        </tr>
+        <% }) %>
+</table>
+<!--Home button to bring user back to homepage-->
+<a href="http://localhost:3000/">Home</a>

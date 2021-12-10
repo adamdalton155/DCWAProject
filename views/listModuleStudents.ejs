@@ -1,0 +1,26 @@
+<!--CSS to adding padding to the table-->
+<style>
+    table, th,  td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
+<table>
+    <tr>
+    <th>Student ID</th>
+    <th>Name</th>
+    <th>GPA</th>
+    </tr>
+    <% studentModule.forEach((studentModule) =>
+    { %>
+        <!--Displays the students studying the module grouped by Module ID (mid)-->
+    <tr>
+    <td><%= studentModule.sid %></td>
+    <td><%= studentModule.name %></td>
+    <td><%= studentModule.gpa %></td>
+    </tr>
+    <% }) %>
+</table>
+<!--Home button to bring user back to homepage-->
+<a href="http://localhost:3000/">Home</a>

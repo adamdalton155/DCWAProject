@@ -1,0 +1,43 @@
+<!--CSS to adding padding to the table-->
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+
+<h1>Modules</h1>
+
+<table>
+    <tr>
+        <th>Module ID</th>
+        <th>Name</th>
+        <th>Credits</th>
+        <th>Update</th>
+        <th>Students</th>
+    </tr>
+    <% module.forEach((module)=>
+        { %>
+        <!--Lists the module information from SQL database in a table format-->
+        <tr>
+            <td>
+                <%= module.mid %>
+            </td>
+            <td>
+                <%= module.name %>
+            </td>
+            <td>
+                <%= module.credits %>
+            </td>
+            <td><a href="">Update</a></td>
+            <!--Button to bring user to a page where students are grouped by Module ID-->
+            <td>
+                <a href="/moduleStudents/<%= module.mid %>"> <button type="button">List</button></a>
+            </td>
+        </tr>
+        <% }) %>
+</table>
+<!--Home button to bring user back to homepage-->
+<a href="http://localhost:3000/">Home</a>
